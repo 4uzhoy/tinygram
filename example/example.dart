@@ -9,10 +9,7 @@ const _chatId = '<Your Chat ID Here>';
 void main() => tinygram();
 
 Future<void> tinygram() async {
-  final bot = TinygramBotImpl(
-    token: _botToken,
-    chatID: const TinygramChat(_chatId).chatID,
-  );
+  final bot = TinygramBotImpl(token: _botToken, chat: TinygramChat(_chatId));
   await bot.getUpdates(limit: 1);
 
   await bot.sendMessage(DateTime.now());

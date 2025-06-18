@@ -40,13 +40,13 @@ abstract interface class TinygramBot {
 /// A base class that holds shared configuration for a Telegram bot.
 base class BotBase {
   /// Creates a new instance of [TelegramBotBase].
-  const BotBase({required this.token, required this.chatID, this.baseUrl});
+  const BotBase({required this.token, required this.chat, this.baseUrl});
 
   /// The Telegram bot token.
   final BotToken token;
 
-  /// The chat ID where messages will be sent.
-  final ChatID chatID;
+  /// The chat where messages will be sent.
+  final TinygramChat chat;
 
   /// The base URL for the Telegram Bot API.
   /// If not provided, it defaults to 'https://api.telegram.org'.
@@ -101,15 +101,17 @@ final class TinygramBotImpl extends BotBase implements TinygramBot {
   /// Creates a new instance of [TinygramBotImpl].
   TinygramBotImpl({
     required super.token,
-    required super.chatID,
+    required super.chat,
     super.baseUrl,
     this.isLogginEnabled = true,
-  }) : assert(token.isNotEmpty, 'Token cannot be empty.'),
-       assert(chatID.isNotEmpty, 'Chat ID cannot be empty.');
+  }) : assert(token.isNotEmpty, 'Token cannot be empty.');
 
   /// Whether logging is enabled for debugging purposes.
   /// If true, logs will be printed to the console.
   final bool isLogginEnabled;
+
+  /// The chat ID where messages will be sent.
+  String get chatID => chat.chatID;
 
   /// Logs messages to the console if logging is enabled.
   /// If [isProcessing] is true, it will append '...' to indicate processing.

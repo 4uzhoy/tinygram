@@ -13,5 +13,9 @@ abstract class ChatBase {
 /// Represents a chat in Tinygram (private chat, group, or channel).
 final class TinygramChat extends ChatBase {
   /// Creates a new instance of [TinygramChat].
-  const TinygramChat(super.chatID);
+  TinygramChat(super.chatID)
+    : assert(
+        chatID.isNotEmpty,
+        'Chat ID cannot be empty. Please provide a valid chat ID.',
+      );
 }
