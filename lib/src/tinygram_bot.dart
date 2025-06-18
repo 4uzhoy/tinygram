@@ -181,8 +181,9 @@ final class TinygramBotImpl extends BotBase implements TinygramBot {
   @override
   Future<void> sendFile(File file) async {
     log('Checking file ${file.path} existence', isProcessing: true);
-    if (!file.existsSync())
+    if (!file.existsSync()) {
       throw ArgumentError('File does not exist: ${file.path}');
+    }
     log('Lookup mime type', isProcessing: true);
 
     final mimeType = lookupMimeType(file.path);
