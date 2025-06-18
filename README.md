@@ -2,7 +2,7 @@
 
 ![Logo](https://raw.githubusercontent.com/4uzhoy/tinygram/main/assets/icologo3_small.png)
 
-Minimalistic yet capable wrapper for sending messages and files via the Telegram Bot API.
+### Minimalistic yet capable wrapper for sending messages and files via the Telegram Bot API.
 
 Perfect for:
 - bots

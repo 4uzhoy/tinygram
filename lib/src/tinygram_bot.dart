@@ -65,7 +65,7 @@ base class BotBase {
   /// Returns a Markdown-formatted string with JSON content.
   String formatJson(Object json) {
     final formatted = const JsonEncoder.withIndent('  ').convert(json);
-    return '```json\n${escapeMarkdownV2(formatted)}\n```';
+    return '```json\n$formatted\n```';
   }
 
   /// Escapes special characters in a Markdown string.
