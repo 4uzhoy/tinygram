@@ -1,26 +1,41 @@
 ## tinygram — tiny but powerful Telegram bot client for Dart 🚀
 
-### A minimalistic yet capable wrapper for sending messages and files to Telegram via bot API.
+![Logo](https://raw.githubusercontent.com/4uzhoy/tinygram/main/assets/icologo3_small.png)
 
-`Ideal for bots, logging tools, dev alerts, CI/CD reports.`
+Minimalistic yet capable wrapper for sending messages and files via the Telegram Bot API.
 
-### Features:
-###### 📩 Send plain text messages or formatted JSON blocks
+Perfect for:
+- bots
+- logging tools
+- dev alerts
+- CI/CD notifications
 
-###### 📎 Send files (e.g., images, docs, logs)
+---
 
-##### 🧪 Retrieve updates for quick chat/channel ID discovery
+### ✨ Features
 
-##### ⚙️ Simple interface, no dependencies beyond http and mime
+- 📩 Send plain text or MarkdownV2-formatted messages  
+- 🧾 Pretty-print and send JSON blocks  
+- 📎 Upload files (images, logs, documents)  
+- 🔍 Fetch updates to discover chat/channel IDs  
 
+---
 
+### 🚀 Getting Started
 
-### Get started: 
-1. Enter in telegram and find botfather
-2. create newbot via /newbot command
-3. Give a bot name, nickname 
-4. Add bot to new Group Chat or add to Existed
- 
- How to know chat id? 
- * You can use several methods, or use tinygram getUpdates method
- 1. Write message to group where is your bot 
+1. Open Telegram and start a chat with [@BotFather](https://t.me/BotFather)
+2. Create a new bot using `/newbot`
+3. Set a name and username
+4. Add the bot to a group or channel
+
+---
+
+### 🔍 How to Get Chat ID
+
+Use `tinygram.getUpdates()` after sending a message in your group:
+
+```dart
+await bot.getUpdates();
+```
+
+Find the "chat" object in the response and extract the id.
