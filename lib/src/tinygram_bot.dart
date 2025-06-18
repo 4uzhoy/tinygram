@@ -85,7 +85,7 @@ base class BotBase {
   /// Escapes Markdown V2 special characters in a string, while preserving
   /// certain formatting like bold, italic, links, and inline code.
   ///
-  /// This neccessary because there is case when we should escape symbols
+  /// This Necessary because there is case when we should escape symbols
   /// for example 'Hi! *Tinygram*' is ok
   /// but 'Hi! *Tinygram!*' is not ok without escaping the exclamation mark.
   /// It uses a regular expression to match and preserve formatting,
@@ -130,7 +130,7 @@ final class TinygramBotImpl extends BotBase implements TinygramBot {
     String? parseMode,
   }) async {
     log('Preparing to send message', isProcessing: true);
-    if (chatID.isEmpty) throw ArgumentError('Missing chat ID.');
+    if (chatID.isEmpty) throw StateError('Missing chat ID.');
 
     var formattedMessage = message;
     var selectedParseMode = parseMode;
@@ -156,10 +156,16 @@ final class TinygramBotImpl extends BotBase implements TinygramBot {
       formattedMessage = formatJson(message);
       selectedParseMode = 'MarkdownV2';
     }
-
+    final text = formattedMessage.toString().trim();
+    if (text.length >= 4096) {
+      throw ArgumentError(
+        'Message is too long (${text.length} characters). '
+        'Telegram messages must be less or equal 4096 characters.',
+      );
+    }
     final payload = <String, String>{
       'chat_id': chatID,
-      'text': formattedMessage.toString(),
+      'text': text,
       if (selectedParseMode != null) 'parse_mode': selectedParseMode,
     };
 
@@ -174,7 +180,7 @@ final class TinygramBotImpl extends BotBase implements TinygramBot {
 
   @override
   Future<void> sendFile(File file) async {
-    log('Checking file existence', isProcessing: true);
+    log('Checking file ${file.path} existence', isProcessing: true);
     if (!file.existsSync())
       throw ArgumentError('File does not exist: ${file.path}');
     log('Lookup mime type', isProcessing: true);

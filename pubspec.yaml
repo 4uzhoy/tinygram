@@ -1,7 +1,9 @@
 name: tinygram
 description: A minimalistic yet capable wrapper for sending messages and files to Telegram via bot API.
 version: 1.0.0
-repository: https://github.com/my_org/my_repo
+repository: https://github.com/4uzhoy/tinygram
+issue_tracker: https://github.com/4uzhoy/tinygram/issues
+homepage: https://github.com/4uzhoy/tinygram
 
 environment:
   sdk: ^3.7.2

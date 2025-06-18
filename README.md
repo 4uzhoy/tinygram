@@ -21,6 +21,10 @@ Perfect for:
 
 ---
 
+> ⚠️ **Limitations**  
+> • Message length: **up to 4096 characters**  
+> • File size: **up to 50 MB** (unless your bot is allowed 2 GB)
+
 ### 🚀 Getting Started
 
 1. Open Telegram and start a chat with [@BotFather](https://t.me/BotFather)
