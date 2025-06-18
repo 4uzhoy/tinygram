@@ -18,12 +18,12 @@ Perfect for:
 - 🧾 Pretty-print and send JSON blocks  
 - 📎 Upload files (images, logs, documents)  
 - 🔍 Fetch updates to discover chat/channel IDs  
-
----
-
 > ⚠️ **Limitations**  
 > • Message length: **up to 4096 characters**  
 > • File size: **up to 50 MB** (unless your bot is allowed 2 GB)
+---
+
+
 
 ### 🚀 Getting Started
 
