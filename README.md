@@ -13,3 +13,14 @@
 
 ##### ⚙️ Simple interface, no dependencies beyond http and mime
 
+
+
+### Get started: 
+1. Enter in telegram and find botfather
+2. create newbot via /newbot command
+3. Give a bot name, nickname 
+4. Add bot to new Group Chat or add to Existed
+ 
+ How to know chat id? 
+ * You can use several methods, or use tinygram getUpdates method
+ 1. Write message to group where is your bot 
